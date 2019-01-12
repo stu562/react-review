@@ -4,6 +4,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.enterFirst = this.enterFirst.bind(this);
+    this.enterLast = this.enterLast.bind(this);
     this.state = {
       first: this.props.firstName,
       last: this.props.lastName
@@ -11,9 +12,14 @@ class App extends React.Component {
   }
 
   enterFirst(e) {
-    console.log(this);
     this.setState({
       first: e.target.value
+    });
+  }
+
+  enterLast(e) {
+    this.setState({
+      last: e.target.value
     });
   }
 
@@ -21,7 +27,8 @@ class App extends React.Component {
     return (
       <div>
         {this.state.first} {this.state.last} <br />
-        First: <input name="first" onChange={this.enterFirst} />
+        First: <input name="first" onChange={this.enterFirst} /> <br />
+        Last: <input name="last" onChange={this.enterLast} />
       </div>
     );
   }
