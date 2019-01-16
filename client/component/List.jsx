@@ -6,6 +6,7 @@ class List extends React.Component {
     super(props);
     this.addToArray = this.addToArray.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addClickEvent = this.addClickEvent.bind(this);
     this.state = {
       string: "a",
       array: ["a"]
@@ -31,6 +32,10 @@ class List extends React.Component {
     document.getElementById("myForm").reset();
   }
 
+  addClickEvent(e) {
+    console.log(e.target.innerHTML);
+  }
+
   render() {
     return (
       <div>
@@ -42,7 +47,7 @@ class List extends React.Component {
         This is String: {this.state.string} <br />
         This is Array: {this.state.array} <br />
         {this.state.array.map(element => (
-          <ListEntry listItem={element} />
+          <ListEntry listItem={element} click={this.addClickEvent} />
         ))}
       </div>
     );
