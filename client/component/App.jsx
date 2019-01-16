@@ -25,17 +25,14 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.first === "Julie" && this.state.last === "Im") {
-      return <List />;
-    } else {
-      return (
-        <div>
-          {this.state.first} {this.state.last} <br />
-          First: <input name="first" onChange={this.enterFirst} /> <br />
-          Last: <input name="last" onChange={this.enterLast} />
-        </div>
-      );
-    }
+    return (
+      <div>
+        {this.state.first} {this.state.last} <br />
+        First: <input name="first" onChange={this.enterFirst} /> <br />
+        Last: <input name="last" onChange={this.enterLast} />
+        <List />
+      </div>
+    );
   }
 }
 
