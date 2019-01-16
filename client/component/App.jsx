@@ -1,4 +1,5 @@
 import React from "react";
+import List from "./List.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends React.Component {
         {this.state.first} {this.state.last} <br />
         First: <input name="first" onChange={this.enterFirst} /> <br />
         Last: <input name="last" onChange={this.enterLast} />
+        <List />
       </div>
     );
   }
