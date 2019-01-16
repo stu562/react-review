@@ -7,8 +7,8 @@ class App extends React.Component {
     this.enterFirst = this.enterFirst.bind(this);
     this.enterLast = this.enterLast.bind(this);
     this.state = {
-      first: this.props.firstName,
-      last: this.props.lastName
+      first: "",
+      last: ""
     };
   }
 
