@@ -5,8 +5,8 @@ class App extends React.Component {
     super(props);
     this.enterFirst = this.enterFirst.bind(this);
     this.state = {
-      first: this.props.firstName,
-      last: this.props.lastName
+      first: "",
+      last: ""
     };
   }
 
