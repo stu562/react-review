@@ -7,9 +7,10 @@ class List extends React.Component {
     this.addToArray = this.addToArray.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addClickEvent = this.addClickEvent.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
-      string: "a",
-      array: ["a"]
+      string: "",
+      array: []
     };
   }
 
@@ -32,22 +33,41 @@ class List extends React.Component {
     document.getElementById("myForm").reset();
   }
 
-  addClickEvent(e) {
-    console.log(e.target.innerHTML);
+  addClickEvent(index) {
+    let todos = this.state.array.slice();
+    var newTodo = prompt("Edit", todos[index]);
+    todos[index] = newTodo;
+    this.setState({
+      array: todos
+    });
+  }
+
+  handleDelete(index) {
+    //console.log(index);
+    let todos = this.state.array.slice();
+    todos.splice(index, 1);
+    this.setState({
+      array: todos
+    });
   }
 
   render() {
     return (
       <div>
-        Hello from List <br />
+        Todo List <br />
         <form id="myForm">
-          Add to Array: <input name="array" onChange={this.addToArray} /> <br />
+          Add to List: <input name="array" onChange={this.addToArray} />
           <input type="submit" value="submit" onClick={this.handleSubmit} />
         </form>
-        This is String: {this.state.string} <br />
-        This is Array: {this.state.array} <br />
-        {this.state.array.map(element => (
-          <ListEntry listItem={element} click={this.addClickEvent} />
+        {/* This is String: {this.state.string} <br />
+        This is Array: {this.state.array} <br /> */}
+        {this.state.array.map((element, index) => (
+          <ListEntry
+            index={index}
+            listItem={element}
+            click={this.addClickEvent}
+            delete={this.handleDelete}
+          />
         ))}
       </div>
     );
